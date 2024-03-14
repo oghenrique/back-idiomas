@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  margin: 5px;
+}
+
+.divSelects {
+  display: flex;
+  gap: 5px;
+}
+
+select {
+  width: 50%;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  border-color: #ddd;
+  border-radius: 5px;
+}
+
+.divTextareas {
+  display: flex;
+  gap: 5px;
+  border-radius: 5px;
+}
+
+textarea {
+  border-color: #ddd;
+  outline: none;
+  padding: 5px;
+  font-size: 18px;
+  width: 50%;
+  border-radius: 5px;
+  resize: none;
+}
+
