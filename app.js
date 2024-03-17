@@ -11,10 +11,10 @@ const countries = {
 
 selects.forEach((tag) => {
   for (let country in countries) {
-    let selected
-    if (tag.className.includes("selectFrom") && country == "pt-BR") {
+    let selected = ""
+    if (tag.classList.contains("selectFrom") && country === "pt-BR") {
       selected = "selected"
-    } else if (tag.className.includes("selectTo") && country == "en-GB") {
+    } else if (tag.classList.contains("selectTo") && country === "en-GB") {
       selected = "selected"
     }
 
@@ -41,3 +41,4 @@ function loadTranslation() {
       textareaTo.value = data.responseData.translatedText
     })
 }
+

@@ -1,26 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Teste</title>
-    <script src="app.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="imagex/png" href="./img/TL.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <title>TopLingo</title>
 </head>
+
 <body>
+  <div class="coluna"></div>
+
+  <header>
+    <div class="espaco"></div>
+
+
+    <h1>TopLingo</h1>
+
+    <div class="modo">
+      <img src="./img/lua.png" alt="modo-noturno">
+    </div>
+
+  </header>
+
+  <main>
     <div class="container">
-        <h1>TRADUTOR</h1>
-        <div class="content">
-          <div class="divSelects">
+      <div class="content">
+        <div class="divTextareas">
+          <div class="tradutor">
+            <textarea id="textareaFrom" placeholder="Digitar texto"></textarea>
             <select class="selectFrom"></select>
+          </div>
+          <div class="traducao">
+            <textarea id="textareaTo" placeholder="Tradução" disabled></textarea>
             <select class="selectTo"></select>
           </div>
-          <div class="divTextareas">
-            <textarea id="textareaFrom" rows="8" placeholder="Digitar texto"></textarea>
-            <textarea id="textareaTo" rows="8" placeholder="Tradução" disabled></textarea>
-          </div>
-          <button id="btnTranslate">TRADUZIR</button>
         </div>
+        <button id="btnTranslate">TRADUZIR</button>
       </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Emily e Gustavo. 🎀</p>
+  </footer>
+
 </body>
+
 </html>
