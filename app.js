@@ -1,7 +1,8 @@
 const textareaFrom = document.querySelector("#textareaFrom")
 const textareaTo = document.querySelector("#textareaTo")
 const btnTranslate = document.querySelector("#btnTranslate")
-const selects = document.querySelectorAll("select")
+const selectFrom = document.querySelector(".selectFrom")
+const selectTo = document.querySelector(".selectTo")
 
 const countries = {
   "en-GB": "Inglês",
@@ -9,36 +10,34 @@ const countries = {
   "pt-BR": "Português",
 }
 
-selects.forEach((tag) => {
+function createSelectOptions(selectElement, selectedValue) {
   for (let country in countries) {
-    let selected = ""
-    if (tag.classList.contains("selectFrom") && country === "pt-BR") {
-      selected = "selected"
-    } else if (tag.classList.contains("selectTo") && country === "en-GB") {
-      selected = "selected"
+    const option = document.createElement("option")
+    option.value = country
+    option.textContent = countries[country]
+    if (country === selectedValue) {
+      option.selected = true
     }
-
-    const option = `<option value="${country}" ${selected}>${countries[country]}</option>`
-
-    tag.insertAdjacentHTML("beforeend", option)
+    selectElement.appendChild(option)
   }
-})
+}
 
-btnTranslate.addEventListener("click", () => {
+createSelectOptions(selectFrom, "pt-BR")
+createSelectOptions(selectTo, "en-GB")
+
+function loadTranslation() {
   if (textareaFrom.value) {
-    loadTranslation()
+    fetch(`https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selectFrom.value}|${selectTo.value}`)
+      .then((res) => res.json())
+      .then((data) => {
+        textareaTo.value = data.responseData.translatedText
+      })
+      .catch((error) => {
+        console.error("Erro ao traduzir:", error)
+      })
   } else {
     textareaTo.value = ""
   }
-})
-
-function loadTranslation() {
-  fetch(
-    `https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      textareaTo.value = data.responseData.translatedText
-    })
 }
 
+btnTranslate.addEventListener("click", loadTranslation)
