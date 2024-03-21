@@ -56,11 +56,15 @@ textarea {
   border-right: none;
   border-bottom: 1px solid black;
   padding: 5px 0;
-  overflow: hidden;
   outline: none;
-  line-height: 0.5;
+  line-height: 1.3;
+  overflow-wrap: break-word;
 }
 
 .tradutor{
-  padding-bottom: 32px;
+  padding-bottom: 100px;
+}
+
+.modo img{
+  width: 60px;
 }

@@ -5,7 +5,7 @@ const selectFrom = document.querySelector(".selectFrom")
 const selectTo = document.querySelector(".selectTo")
 
 const countries = {
-  "en-GB": "Inglês",
+  "en-US": "Inglês",
   "es-ES": "Espanhol",
   "pt-BR": "Português",
 }
