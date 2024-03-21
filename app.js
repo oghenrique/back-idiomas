@@ -5,9 +5,16 @@ const selectFrom = document.querySelector(".selectFrom")
 const selectTo = document.querySelector(".selectTo")
 
 const countries = {
-  "en-US": "Inglês",
+  "ar-AR": "Árabe",
+  "de-DE": "Alemão",
+  "zh-ZH": "Chinês",
   "es-ES": "Espanhol",
+  "fr-FR": "Francês",
+  "en-US": "Inglês",
+  "it-IT": "Italiano",
+  "ja-JA": "Japonês",
   "pt-BR": "Português",
+  "ru-RU": "Russo"
 }
 
 function createSelectOptions(selectElement, selectedValue) {
@@ -23,7 +30,7 @@ function createSelectOptions(selectElement, selectedValue) {
 }
 
 createSelectOptions(selectFrom, "pt-BR")
-createSelectOptions(selectTo, "en-GB")
+createSelectOptions(selectTo, "en-US")
 
 function loadTranslation() {
   if (textareaFrom.value) {
