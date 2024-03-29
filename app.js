@@ -1,8 +1,13 @@
+'use strict'
+
 const textareaFrom = document.querySelector("#textareaFrom")
 const textareaTo = document.querySelector("#textareaTo")
 const btnTranslate = document.querySelector("#btnTranslate")
 const selectFrom = document.querySelector(".selectFrom")
 const selectTo = document.querySelector(".selectTo")
+const microphone = document.querySelector("#microphone")
+const volume = document.querySelector("#volume")
+
 
 const countries = {
   "ar-AR": "Árabe",
@@ -48,3 +53,34 @@ function loadTranslation() {
 }
 
 btnTranslate.addEventListener("click", loadTranslation)
+
+// feature comandos de voz
+
+let recognition
+
+'webkitSpeechRecognition' in window
+recognition = new (window.webkitSpeechRecognition)()
+recognition.lang = 'pt-BR'
+
+
+if (recognition) {
+  microphone.addEventListener("click", () => {
+    recognition.start()
+  })
+
+  recognition.addEventListener("result", (event) => {
+    const speechToText = event.results[0][0].transcript
+    textareaFrom.value = speechToText
+  })
+}
+
+volume.addEventListener("click", () => {
+  const textToRead = textareaTo.value
+  if ('speechSynthesis' in window) {
+    const speech = new SpeechSynthesisUtterance(textToRead)
+    speech.lang = selectTo.value
+    window.speechSynthesis.speak(speech)
+  } else {
+    alert("Desculpe, seu navegador não suporta a funcionalidade de leitura de texto.")
+  }
+})

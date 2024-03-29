@@ -91,3 +91,45 @@ select {
   cursor: pointer;
   color: aliceblue;
 }
+
+textarea{
+  padding-left: 30px;
+}
+
+.traducao textarea{
+  padding-left: 40px;
+}
+
+i{
+ font-size: 24px;
+ cursor: pointer;
+}
+
+.fa-microphone:hover, .fa-volume-high:hover{
+  color: black;
+}
+
+.traducao {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.traducao i {
+  position: absolute;
+  top: 25%;
+  transform: translateY(-50%);
+  color: #777;
+}
+
+
+.tradutor {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.tradutor i {
+  position: absolute;
+  top: 8%;
+  transform: translateY(-50%);
+  color: #777;
+}
