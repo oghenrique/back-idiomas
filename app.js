@@ -84,3 +84,11 @@ volume.addEventListener("click", () => {
     alert("Desculpe, seu navegador não suporta a funcionalidade de leitura de texto.")
   }
 })
+
+textareaFrom.addEventListener("input", function() {
+  const inputValue = this.value.toLowerCase()
+
+  if (inputValue.includes("nathalia")) {
+    recognition.start()
+  }
+})
